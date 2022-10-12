@@ -1,5 +1,5 @@
 %{
-  "erlfdb": {:git, "https://github.com/apache/couchdb-erlfdb.git", "1e5f2385818b132b7798cf832fe719fdd01b6783", [tag: "v1.3.4"]},
+  "erlfdb": {:git, "https://github.com/konaryio/couchdb-erlfdb.git", "46af08f50f543d1ddca6e545b726ec2b31a3bc88", [tag: "v1.3.5"]},
   "rop": {:hex, :rop, "0.5.3", "09640662fa07730e71a987e1d8574476f0e0d89f7856100cbf8265de6bd71973", [:mix], [], "hexpm", "3b8c37802c530eecc7714c175fe36486bb45157519cc7498ac487f6590f396e8"},
   "stemmer": {:hex, :stemmer, "1.0.2", "b695c5fc40b25194206cbcabb081b982e6369c84dcdb9574f563b6ced3cdc92c", [:mix], [], "hexpm", "7a4e1dd4adfd604478828944ea33f435f117efce8e77e1cfc28e90bfd833f37f"},
   "unsafe": {:hex, :unsafe, "1.0.1", "a27e1874f72ee49312e0a9ec2e0b27924214a05e3ddac90e91727bc76f8613d8", [:mix], [], "hexpm", "6c7729a2d214806450d29766abc2afaa7a2cbecf415be64f36a6691afebb50e5"},

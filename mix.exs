@@ -21,7 +21,7 @@ defmodule Foundation.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:erlfdb, git: "https://github.com/apache/couchdb-erlfdb.git", tag: "v1.3.4"},
+      {:erlfdb, git: "https://github.com/konaryio/couchdb-erlfdb.git", tag: "v1.3.5"},
     ]
   end
 end

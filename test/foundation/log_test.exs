@@ -78,4 +78,32 @@ defmodule FoundationTest.Log do
              ]
     end)
   end
+
+  test "log since with versionstamp" do
+    db = :erlfdb_util.get_test_db(empty: true)
+
+    Foundation.trans(db, fn tx ->
+      Log.append(tx, ["bank_account", "bob"], 100)
+      Log.append(tx, ["bank_account", "bob"], 101)
+      Log.append(tx, ["bank_account", "bob"], 102)
+    end)
+
+    [{["bank_account", "bob", first_vsn] = first_key, _}] = Foundation.trans(db, fn(tx) ->
+      Log.since(tx, ["bank_account", "bob"], limit: 1)
+    end)
+
+    assert Foundation.Utils.is_versionstamp(first_vsn)
+    [{["bank_account", "bob", last_vsn] = last_key, _} | _] = Foundation.trans(db, fn(tx) ->
+      Log.since(tx, first_key, limit: 1)
+    end)
+
+
+    assert Kernel.match?(["bank_account", "bob", {:versionstamp, _, _, _}], last_key)
+
+    Foundation.trans(db, fn(tx) ->
+      Log.before(tx, last_key, limit: 1)
+    end)
+
+
+  end
 end
